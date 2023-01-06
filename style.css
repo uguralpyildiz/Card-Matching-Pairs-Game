@@ -1,5 +1,40 @@
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
+   background: linear-gradient(to right, #194423,#113019,#194423);
+}
+.navbar{
+    background: #000000;
+}
+
+.sec { 
+    align-items: center;
+    justify-content: space-between;
+    background: #23682d;
+}
+.ht{
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+   
+}
+.restart-btn{
+    padding: 12px 25px;
+    background: #46bb61;
+}
+.flex-s{
+display: flex;
+justify-content: space-between;
+max-width: 500px;
+margin: auto;
+}
+.sushi{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,19 +47,19 @@ body{
 
 .cards{
     position: relative;
-
-    width: 180px;
-    height: 200px;
-    margin: 5px;
+    width: 100px;
+    height: 150px;
+    margin: 12px;
     cursor: pointer;
     perspective: 800px;
     transform-style: preserve-3d;
+    
 }
 
 .view{
     display: flex;
-    align-items: center;
-    justify-content: center;   
+    align-items: flex-start;
+    justify-content: flex-start;   
     position: absolute;
     height: 100%;
     width: 100%;
@@ -34,13 +69,17 @@ body{
 
 .cards .f-view{   
     font-size: 64px;
-    background: red;
+    background: url(11.png) ;
+    background-size: 100%;
+    box-shadow: 0 0 10px #00000050;
 }
+
 
 .cards .b-view {
     transform: rotateY(-180deg);
     font-size: 64px;
-    background: rgb(29, 173, 24);
+    background: rgb(219, 219, 219);
+    box-shadow: 0 0 10px #00000050;
  
 }
 
