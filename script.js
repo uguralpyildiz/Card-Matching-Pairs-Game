@@ -1,8 +1,11 @@
-const card = document.querySelectorAll(".card")
+const cards = document.querySelectorAll(".cards")
+const flipCount = document.querySelector(".flipCount")
+let score = 0;
 
-for (let i = 0; i < card.length; i++) {
-    var randomN = Math.floor(Math.random() * card.length)
-    card[i].addEventListener("click", ()=>{
-        console.log(randomN)
-    });   
-}
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+      score++;
+      card.classList.toggle("flip")
+       flipCount.innerHTML = "Flips: "+score
+   }) 
+});

@@ -83,10 +83,10 @@ margin: auto;
  
 }
 
-.cards:hover .b-view{
+.cards.flip .b-view{
 transform: rotateY(0deg);
 }
 
-.cards:hover .f-view {
+.cards.flip .f-view {
     transform: rotateY(180deg);
 }
