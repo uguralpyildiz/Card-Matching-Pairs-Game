@@ -1,24 +1,22 @@
 const cards = document.querySelectorAll(".cards")
 const flipCount = document.querySelector(".flipCount")
 const restartBtn = document.querySelector(".restart-btn")
-const second = document.querySelector(".second")
-let cardOne, cardTwo;
+const second = document.querySelector(".nav")
+let clickOne, clickTwo;
 let disableflip = false;
 let matchFlip = 0;
 let score = 0;
 let sec = 0;
-
-
 function flipCard(e) {
     let clickedCard = e.target;
-    if (clickedCard !== cardOne && !disableflip) {
+    if (clickedCard !== clickOne && !disableflip) {
         score++;
         flipCount.innerHTML = "Flips: " + score
         clickedCard.classList.add("flip")
-        if (!cardOne) {
-            return cardOne = clickedCard
+        if (!clickOne) {
+            return clickOne = clickedCard
         }
-        cardTwo = clickedCard;
+        clickTwo = clickedCard;
         disableflip = true;
         matchCards()
     }
@@ -26,48 +24,49 @@ function flipCard(e) {
 }
 
 function matchCards() {
-    if (cardOne.textContent === cardTwo.textContent) {
+    if (clickOne.textContent === clickTwo.textContent) {
         matchFlip++;
         if (matchFlip === 12) {
           setTimeout(() => {
               return shuffle();        
           }, 700);
         }
-        cardOne.removeEventListener("click", flipCard)
-        cardTwo.removeEventListener("click", flipCard)
-        cardOne = cardTwo = "";
+        clickOne.removeEventListener("click", flipCard)
+        clickTwo.removeEventListener("click", flipCard)
+        clickOne = clickTwo = "";
         return disableflip = false;
     }
     setTimeout(() => {
-        cardOne.classList.remove("flip"), cardTwo.classList.remove("flip")       
-        cardOne = cardTwo = "";
+        clickOne.classList.remove("flip"), clickTwo.classList.remove("flip")       
+        clickOne = clickTwo = "";
         disableflip = false;
     }, 1000);
 }
 
+restartBtn.addEventListener("click", () => {
+    scoreVbReset()
+    cards.forEach(card => {
+        card.classList.remove("flip")
+        card.addEventListener("click", flipCard);
+    });
+})
 
-setInterval(() => {
-    sec++;
-    second.innerHTML = sec + "s"
-}, 1000);
-
-
-function shuffle(){
+function scoreVbReset() {
     score = 0;
     flipCount.innerHTML = "Flips: " + score;
     matchFlip = 0;
-    cardOne = cardTwo = "";
+}
+
+function shuffle(){
+    scoreVbReset()
+    clickOne = clickTwo = "";
     cards.forEach(card => {
         card.classList.remove("flip")
         card.addEventListener("click", flipCard);
     });
 }
 
-restartBtn.addEventListener("click", () => {
-    setTimeout(() => {
-        shuffle()
-    }, 700);
-})
+
 
 cards.forEach(card => {
     card.addEventListener("click", flipCard);

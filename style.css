@@ -36,7 +36,9 @@ i{
     overflow: hidden;
 }
 
-
+.nav{
+    background: #000000aa;
+}
 
 .restart-btn::before{
     content: "";
@@ -52,6 +54,9 @@ i{
 
 .restart-btn:hover {
     transform: scale(1.05);
+}
+.restart-btn:active {
+    transform: scale(.90);
 }
 
 .restart-btn:hover::before {
@@ -76,8 +81,6 @@ margin: auto;
     flex-direction: column;
 }
 
-
-
 .cards{
     position: relative;
     width: 100px;
@@ -100,8 +103,6 @@ margin: auto;
     pointer-events: none;
     user-select: none;
 }
-
-
 
 .cards .f-view{   
     font-size: 64px;
