@@ -44,12 +44,7 @@ function matchCards() {
 }
 
 restartBtn.addEventListener("click", () => {
-    shuffleCards()
-    scoreVbReset()
-    cards.forEach(card => {
-        card.classList.remove("flip")
-        card.addEventListener("click", flipCard);
-    });
+    shuffle()
 })
 
 function scoreVbReset() {
@@ -59,13 +54,15 @@ function scoreVbReset() {
 }
 
 function shuffle(){
-    shuffleCards()
-    scoreVbReset()
-    clickOne = clickTwo = "";
     cards.forEach(card => {
         card.classList.remove("flip")
         card.addEventListener("click", flipCard);
     });
+    setTimeout(() => {
+        shuffleCards()
+    }, 700);
+    scoreVbReset()
+    clickOne = clickTwo = "";
 }
 
 function shuffleCards() {

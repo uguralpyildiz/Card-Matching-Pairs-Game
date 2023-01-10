@@ -103,6 +103,8 @@ margin: auto;
     transition: transform .4s linear;
     pointer-events: none;
     user-select: none;
+    border-radius: 5px;
+
 }
 
 .cards .f-view{   
@@ -130,4 +132,62 @@ transform: rotateY(0deg);
 
 .cards.flip .f-view {
     transform: rotateY(180deg);
+}
+
+.modal{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #00000080;
+    z-index: 99;
+}
+
+.modal-content{
+    position: absolute;
+    top: 150px;
+    width: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px #00000030;
+}
+
+.scoretext{
+    font-size: 26px;
+    padding: 15px;
+    text-align: center;
+}
+
+.stat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(to right, rgb(22, 22, 22), rgb(72, 72, 72));
+}
+
+.flips,.secs{
+    font-size: 24px;
+    padding: 15px;
+    color: #fff;
+}
+
+.damn{
+    background: linear-gradient(to right, rgb(73, 11, 49),rgb(171, 13, 105));
+    color: #fff;
+}
+.great {
+    background: linear-gradient(to right, rgb(11, 73, 20), rgb(13, 171, 98));
+    color: #fff;
+}
+.mid {
+    background: linear-gradient(to right, rgb(178, 48, 12), rgb(193, 115, 7));
+    color: #fff;
+}
+.bad {
+    background: linear-gradient(to right, rgb(73, 11, 11), rgb(171, 13, 47));
+    color: #fff;
 }
