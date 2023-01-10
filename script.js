@@ -24,12 +24,12 @@ function flipCard(e) {
 }
 
 function matchCards() {
-    if (clickOne.textContent === clickTwo.textContent) {
+    if (clickOne.innerHTML === clickTwo.innerHTML) {
         matchFlip++;
         if (matchFlip === 12) {
           setTimeout(() => {
               return shuffle();        
-          }, 700);
+          }, 1700);
         }
         clickOne.removeEventListener("click", flipCard)
         clickTwo.removeEventListener("click", flipCard)
@@ -90,7 +90,7 @@ function shuffleArray(array) {
 }
 
 
-shuffleCards()
+// shuffleCards()
 
 
 cards.forEach(card => {

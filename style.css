@@ -40,6 +40,7 @@ i{
     background: #000000aa;
 }
 
+
 .restart-btn::before{
     content: "";
     position: absolute;
@@ -110,14 +111,17 @@ margin: auto;
     background-size: 100%;
     box-shadow: 0 0 10px #00000050;
 }
-
+.cardimg {
+    width: 100px;
+    height: 150px;
+}
 
 .cards .b-view {
+    display: flex;
+    align-items: center;
     transform: rotateY(-180deg);
     font-size: 64px;
-    background: rgb(219, 219, 219);
     box-shadow: 0 0 10px #00000050;
- 
 }
 
 .cards.flip .b-view{
