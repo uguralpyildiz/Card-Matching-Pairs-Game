@@ -44,6 +44,7 @@ function matchCards() {
 }
 
 restartBtn.addEventListener("click", () => {
+    shuffleCards()
     scoreVbReset()
     cards.forEach(card => {
         card.classList.remove("flip")
@@ -58,6 +59,7 @@ function scoreVbReset() {
 }
 
 function shuffle(){
+    shuffleCards()
     scoreVbReset()
     clickOne = clickTwo = "";
     cards.forEach(card => {
@@ -66,6 +68,29 @@ function shuffle(){
     });
 }
 
+function shuffleCards() {
+    var cardContents = [];
+    for (let i = 0; i < cards.length; i++) {
+        cardContents.push(cards[i].innerHTML)
+    }
+    cardContents = shuffleArray(cardContents);
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].innerHTML = cardContents[i];
+    }
+}
+
+function shuffleArray(array) {
+    for (var i = array.length -1; i > 0; i--){
+        var j = Math.floor(Math.random()* (i+1));
+        var temp = array[i];
+        array[i] = array[j]
+        array[j] = temp;
+    }
+    return array;
+}
+
+
+shuffleCards()
 
 
 cards.forEach(card => {
