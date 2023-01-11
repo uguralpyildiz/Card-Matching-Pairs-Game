@@ -6,16 +6,17 @@
 }
 
 body{
-   background: linear-gradient(to right, #194423,#113019,#194423);
+   background: #000000;
+   font-family: 'Poppins', sans-serif;
 }
 
 
 .sec { 
-    background: #22672b;
+    background: #000000;
 }
 
 .ht{
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     color: #fff;
     width: 33.3%;
@@ -27,13 +28,19 @@ i{
 .restart-btn ,.ht{
     position: relative;
     padding: 10px;
-    margin: 5px;
+    margin: 20px 5px;
+    width: 150px;
     color: #fff;
     transition: .3s ease;
-    background: #00000050;
+    background: linear-gradient(to right, rgb(86, 6, 6), #000);
     box-shadow: 0 0 10px #00000030;
-    border-radius: 5px;
+    border: 1px solid #a55b0b;
+    border-radius: 50px;
     overflow: hidden;
+}
+
+.nav{
+    width: 30%;
 }
 
 .nav{
@@ -90,6 +97,22 @@ margin: auto;
     cursor: pointer;
     perspective: 800px;
     transform-style: preserve-3d;
+    
+}
+
+.view::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -140px;
+    width: 100%;
+    transform: rotate(30deg);
+    height: 200%;
+    background: #ffffffaa;
+    transition: .4s ease; 
+}
+.cards:hover .view::before{
+    left: 150px; 
 }
 
 .view{
@@ -104,8 +127,10 @@ margin: auto;
     pointer-events: none;
     user-select: none;
     border-radius: 5px;
-
+overflow: hidden;
 }
+
+
 
 .cards .f-view{   
     font-size: 64px;
@@ -135,7 +160,7 @@ transform: rotateY(0deg);
 }
 
 .modal{
-    display: flex;
+    display: none;
     justify-content: center;
     position: fixed;
     top: 0;
@@ -143,6 +168,7 @@ transform: rotateY(0deg);
     width: 100vw;
     height: 100vh;
     background: #00000080;
+    backdrop-filter: blur(3px);
     z-index: 99;
 }
 
@@ -153,6 +179,16 @@ transform: rotateY(0deg);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 15px #00000030;
+    animation: fade 1s ease;
+}
+
+@keyframes fade {
+    from{
+        top: -100%;
+    }
+    to{
+        top: 150px;
+    }
 }
 
 .scoretext{
@@ -166,7 +202,7 @@ transform: rotateY(0deg);
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: linear-gradient(to right, rgb(22, 22, 22), rgb(72, 72, 72));
+    background: linear-gradient(to right, rgb(17, 17, 17), rgb(42, 41, 41));
 }
 
 .flips,.secs{

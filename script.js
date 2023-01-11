@@ -29,7 +29,7 @@ function matchCards() {
         if (matchFlip === 12) {
           setTimeout(() => {
               return shuffle();        
-          }, 1700);
+          }, 1000);
         }
         clickOne.removeEventListener("click", flipCard)
         clickTwo.removeEventListener("click", flipCard)
@@ -37,15 +37,33 @@ function matchCards() {
         return disableflip = false;
     }
     setTimeout(() => {
-        clickOne.classList.remove("flip"), clickTwo.classList.remove("flip")       
-        clickOne = clickTwo = "";
-        disableflip = false;
-    }, 1000);
+        if (clickOne.classList == "cards flip" && clickTwo.classList == "cards flip") {
+            clickOne.classList.remove("flip"), clickTwo.classList.remove("flip")
+            clickOne = clickTwo = "";
+            disableflip = false;
+        }       
+    }, 700);
 }
 
-restartBtn.addEventListener("click", () => {
-    shuffle()
+restartBtn.addEventListener("click", () => {  
+    scoreVbReset() 
+    cards.forEach(card => {
+        if (card.classList.contains("flip")) {
+            card.classList.remove("flip")
+            card.addEventListener("click", flipCard);
+            disableflip = true;
+            clickOne = clickTwo = "";
+            setTimeout(() => {
+                shuffleCards()
+            }, 700);
+            setTimeout(() => {
+                disableflip = false;
+            }, 1000);
+        }     
+    });    
 })
+
+
 
 function scoreVbReset() {
     score = 0;
@@ -54,6 +72,40 @@ function scoreVbReset() {
 }
 
 function shuffle(){
+    const scoreBoard = document.querySelector(".modal");
+    const scoretext = document.querySelector(".scoretext");
+    const flips = document.querySelector(".flips");
+    const scoreSec = document.querySelector(".secs");
+    scoreBoard.style.display = "flex";
+    window.addEventListener("click", (e) => {
+        if (e.target === scoreBoard) {
+            scoreBoard.style.display = "none";
+        }
+    })
+    if (score < 45) {
+        scoretext.classList.toggle("damn")
+        scoretext.innerHTML = "Flawless"
+        flips.innerHTML ="Flips: "+score;
+        scoreSec.innerHTML = "Second: " + sec;
+    }
+    if (score >= 45 && score < 65) {
+        scoretext.classList.toggle("great")
+        scoretext.innerHTML = "Great Game :))"
+        flips.innerHTML = "Flips: " + score;
+        scoreSec.innerHTML = "Second: "+sec;
+    }
+    if (score >= 65 && score < 80) {
+        scoretext.classList.toggle("mid")
+        scoretext.innerHTML = "Not Bad"
+        flips.innerHTML = "Flips: " + score;
+        scoreSec.innerHTML = "Second: " + sec;
+    }
+    if (score >= 80) {
+        scoretext.classList.toggle("bad")
+        scoretext.innerHTML = "Bad :("
+        flips.innerHTML = "Flips: " + score;
+        scoreSec.innerHTML = "Second: " + sec;
+    }
     cards.forEach(card => {
         card.classList.remove("flip")
         card.addEventListener("click", flipCard);
@@ -64,6 +116,8 @@ function shuffle(){
     scoreVbReset()
     clickOne = clickTwo = "";
 }
+
+
 
 function shuffleCards() {
     var cardContents = [];

@@ -6,29 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pairs game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e2bce648c2.js" crossorigin="hurphygames"></script>
 </head>
 <body>
-
-    <div class="menu">
-        <div class="sec">
-           <div class="flex-s">
-                <div class="ht flipCount">Flips: 0</div>
-                <div class="ht nav">0s</div>
-                <div style="cursor: pointer;" class="ht restart-btn">Restart</div>
-           </div>
+<div class="modal">
+    <div class="modal-content">
+        <div class="scoretext"></div>
+        <div class="stat">
+            <div class="flips"></div>
+            <div class="secs"></div>
         </div>
     </div>
+</div>
     <div class="sushi">
-        <div class="modal">
-            <div class="modal-content">
-                <div class="scoretext great">GREAT GAME</div>
-                <div class="stat">
-                    <div class="flips">Flips: 15</div>
-                    <div class="secs">Sec: 125s</div>
-                </div>
-            </div>
-        </div>
         <div class="card-container">
             <div class="cards">
                 <div class="f-view view"></div>
@@ -138,6 +131,15 @@
                 </div>
             </div>
     </div>
+        <div class="menu">
+            <div class="sec">
+                <div class="flex-s">
+                    <div class="ht flipCount">Flips: 0</div>
+                    <div class="ht nav">0s</div>
+                    <div style="cursor: pointer;" class="ht restart-btn">Restart</div>
+                </div>
+            </div>
+        </div>
     <script src="script.js"></script>
 </body>
 </html>
