@@ -8,14 +8,15 @@
 body{
 background-color: #000000;
     opacity: 1;
-    background-image: radial-gradient(#3e0000 2px, #000000 2px);
+    background-image: radial-gradient(#340e0e 2px, #000000 2px);
     background-size: 40px 40px;
     font-family: 'Poppins', sans-serif;
 }
 
 
 .sec { 
-    background: #00000067;
+    background: #000000;
+    box-shadow: 0 0 750px rgb(255, 106, 0);
 }
 
 .ht{
@@ -118,6 +119,9 @@ margin: auto;
 }
 .cards.flip:hover{
     transform: scale(1);
+}
+.cards:hover .view::before {
+    left: 150px;
 }
 .cards.flip .view::before{
     left: 150px; 

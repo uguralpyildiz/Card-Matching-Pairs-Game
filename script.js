@@ -10,6 +10,7 @@ let sec = 0;
 var timerOp = true;
 var Interval;
 function timer() {
+   clearInterval(Interval)
    Interval = setInterval(() => {
         sec++;
         second.innerHTML = sec + "s"
@@ -90,6 +91,10 @@ function scoreVbReset() {
     score = 0;
     flipCount.innerHTML = "Flips: " + score;
     matchFlip = 0;
+    clearInterval(Interval)
+    sec = 0;
+    second.innerHTML = sec + "s"
+    timerOp = true;
 }
 
 function shuffle(){
