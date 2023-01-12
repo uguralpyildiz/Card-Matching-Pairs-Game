@@ -25,6 +25,7 @@ background-color: #000000;
     color: #fff;
     width: 33.3%;
 }
+
 i{
     margin-right: 10px;
 }
@@ -75,12 +76,13 @@ i{
 }
 
 .flex-s{
-display: flex;
-align-items: center;
-justify-content: space-between;
-max-width: 500px;
-margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: auto;
 }
+
 .sushi{
     display: flex;
     align-items: center;

@@ -68,9 +68,10 @@ function matchCards() {
 }
 
 restartBtn.addEventListener("click", () => {  
-    scoreVbReset() 
+    
     cards.forEach(card => {
         if (card.classList.contains("flip")) {
+            scoreVbReset() 
             card.classList.remove("flip")
             card.addEventListener("click", flipCard);
             disableflip = true;
@@ -166,8 +167,7 @@ function shuffleArray(array) {
     return array;
 }
 
-
-// shuffleCards()
+shuffleCards()
 
 
 cards.forEach(card => {
