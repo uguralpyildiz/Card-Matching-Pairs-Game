@@ -7,6 +7,27 @@ let disableflip = false;
 let matchFlip = 0;
 let score = 0;
 let sec = 0;
+var timerOp = true;
+var Interval;
+function timer() {
+   Interval = setInterval(() => {
+        sec++;
+        second.innerHTML = sec + "s"
+    }, 1000);
+}
+
+for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener("click", ()=>{
+        if (timerOp == true) {
+            timer()
+            setTimeout(() => {
+                timerOp = false;
+            }, 50);
+        }
+    });
+    
+}
+
 function flipCard(e) {
     let clickedCard = e.target;
     if (clickedCard !== clickOne && !disableflip) {
@@ -86,25 +107,25 @@ function shuffle(){
         scoretext.classList.toggle("damn")
         scoretext.innerHTML = "Flawless"
         flips.innerHTML ="Flips: "+score;
-        scoreSec.innerHTML = "Second: " + sec;
+        scoreSec.innerHTML = "Second: " + sec+"s";
     }
     if (score >= 45 && score < 65) {
         scoretext.classList.toggle("great")
         scoretext.innerHTML = "Great Game"
         flips.innerHTML = "Flips: " + score;
-        scoreSec.innerHTML = "Second: "+sec;
+        scoreSec.innerHTML = "Second: "+sec+"s";
     }
     if (score >= 65 && score < 80) {
         scoretext.classList.toggle("mid")
         scoretext.innerHTML = "Not Bad"
         flips.innerHTML = "Flips: " + score;
-        scoreSec.innerHTML = "Second: " + sec;
+        scoreSec.innerHTML = "Second: " + sec+"s";
     }
     if (score >= 80) {
         scoretext.classList.toggle("bad")
         scoretext.innerHTML = "Bad Game :("
         flips.innerHTML = "Flips: " + score;
-        scoreSec.innerHTML = "Second: " + sec;
+        scoreSec.innerHTML = "Second: " + sec+"s";
     }
     cards.forEach(card => {
         card.classList.remove("flip")
@@ -147,6 +168,7 @@ function shuffleArray(array) {
 cards.forEach(card => {
     card.addEventListener("click", flipCard);
 });
+
 
 
 
