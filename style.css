@@ -6,13 +6,16 @@
 }
 
 body{
-   background: #000000;
-   font-family: 'Poppins', sans-serif;
+background-color: #000000;
+    opacity: 1;
+    background-image: radial-gradient(#3e0000 2px, #000000 2px);
+    background-size: 40px 40px;
+    font-family: 'Poppins', sans-serif;
 }
 
 
 .sec { 
-    background: #000000;
+    background: #00000067;
 }
 
 .ht{
@@ -37,6 +40,7 @@ i{
     border: 1px solid #a55b0b;
     border-radius: 50px;
     overflow: hidden;
+    transition: .4s ease;
 }
 
 .nav{
@@ -60,9 +64,7 @@ i{
     transition: .6s ease;
 }
 
-.restart-btn:hover {
-    transform: scale(1.05);
-}
+
 .restart-btn:active {
     transform: scale(.90);
 }
@@ -91,27 +93,33 @@ margin: auto;
 
 .cards{
     position: relative;
-    width: 100px;
-    height: 150px;
-    margin: 12px;
+    width: 90px;
+    height: 133px;
+    margin: 8px;
     cursor: pointer;
     perspective: 800px;
-    transform-style: preserve-3d;
-    
+    transform-style: preserve-3d;  
+    transition: .3s ease transform;
 }
 
 .view::before {
     content: "";
     position: absolute;
     top: -50%;
-    left: -140px;
+    left: -300%;
     width: 100%;
     transform: rotate(30deg);
     height: 200%;
-    background: #ffffffaa;
-    transition: .4s ease; 
+    background: #fff;
+    transition: .3s ease; 
 }
-.cards:hover .view::before{
+.cards:hover{
+    transform: scale(1.05);
+}
+.cards.flip:hover{
+    transform: scale(1);
+}
+.cards.flip .view::before{
     left: 150px; 
 }
 
@@ -139,8 +147,7 @@ overflow: hidden;
     box-shadow: 0 0 10px #00000050;
 }
 .cardimg {
-    width: 100px;
-    height: 150px;
+    width: 100%;
 }
 
 .cards .b-view {
@@ -167,8 +174,7 @@ transform: rotateY(0deg);
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #00000080;
-    backdrop-filter: blur(3px);
+    background: #00000090;
     z-index: 99;
 }
 

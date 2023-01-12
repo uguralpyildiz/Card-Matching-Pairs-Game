@@ -90,7 +90,7 @@ function shuffle(){
     }
     if (score >= 45 && score < 65) {
         scoretext.classList.toggle("great")
-        scoretext.innerHTML = "Great Game :))"
+        scoretext.innerHTML = "Great Game"
         flips.innerHTML = "Flips: " + score;
         scoreSec.innerHTML = "Second: "+sec;
     }
@@ -102,7 +102,7 @@ function shuffle(){
     }
     if (score >= 80) {
         scoretext.classList.toggle("bad")
-        scoretext.innerHTML = "Bad :("
+        scoretext.innerHTML = "Bad Game :("
         flips.innerHTML = "Flips: " + score;
         scoreSec.innerHTML = "Second: " + sec;
     }
