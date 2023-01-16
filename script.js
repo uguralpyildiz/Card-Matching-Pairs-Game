@@ -9,6 +9,7 @@ let score = 0;
 let sec = 0;
 var timerOp = true;
 var Interval;
+var isClickedOp = true;
 function timer() {
    clearInterval(Interval)
    Interval = setInterval(() => {
@@ -19,6 +20,7 @@ function timer() {
 
 for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener("click", ()=>{
+        isClickedOp = true;
         if (timerOp == true) {
             timer()
             setTimeout(() => {
@@ -68,9 +70,11 @@ function matchCards() {
 }
 
 restartBtn.addEventListener("click", () => {  
-    
     cards.forEach(card => {
-        if (card.classList.contains("flip")) {
+        if (isClickedOp == true) {
+            setTimeout(() => {
+                isClickedOp = false;
+            }, 700);
             scoreVbReset() 
             card.classList.remove("flip")
             card.addEventListener("click", flipCard);
